@@ -29,9 +29,9 @@ A full-featured, open-source Laravel API for generating, emailing, and managing 
 - **Backend**: Laravel 12
 - **PDF Engine**: barryvdh/laravel-dompdf
 - **Auth**: Laravel Sanctum
-- **Database**: MySQL (or SQLite for dev)
+- **Database**: MySQL 
 
-> Frontend client (React or Vue) can be found in [Will be added soon]
+> Frontend client (React or Vue) can be found in (To Be Added)
 
 ---
 
@@ -40,13 +40,13 @@ A full-featured, open-source Laravel API for generating, emailing, and managing 
 ### 🔧 Requirements
 - PHP 8.2+
 - Composer
-- MySQL / SQLite
-- Node.js (for frontend)
+- MySQL
+
 
 ### 📦 Installation
 
 ```bash
-git clone https://github.com/your-username/invoice-generator-backend.git
+git clone https://github.com/WaseemAlnasser/invoice-generator-api.git
 cd invoice-generator-backend
 
 composer install
@@ -59,3 +59,80 @@ php artisan storage:link
 
 # Start server
 php artisan serve
+```
+
+---
+
+## 🔐 Authentication
+
+Register/login via:
+```http
+POST /api/register
+POST /api/login
+```
+
+All protected routes require a `Bearer {token}` in the `Authorization` header.
+
+---
+
+## 📬 Sending Invoice Emails
+
+Send a PDF invoice to your client:
+```http
+POST /api/invoices/{id}/send
+```
+
+Make sure `MAIL_MAILER` and `MAIL_FROM_ADDRESS` are set in `.env`.
+
+---
+
+## 🖼 Branding API
+
+```http
+POST /api/branding
+```
+
+- `company_name`: text
+- `company_address`: text
+- `company_logo`: image file (form-data)
+
+---
+
+## 🌍 Public Invoice Link
+
+```http
+GET /public/invoice/{uuid}
+```
+
+- No auth required
+- Auto-loaded branding and invoice info
+- Print and PDF download supported
+
+---
+
+## 🧪 Postman Collection
+
+You can import the full Postman collection from:
+📎 [`Invoice_Generator_Postman_Collection.json`](./Invoice_Generator_Postman_Collection.json)
+
+---
+
+## 📜 License
+
+This project is open-sourced under the [MIT License](LICENSE).
+
+---
+
+## 🙌 Contributing
+
+Pull requests are welcome! Feel free to open issues, suggestions, or new ideas for integrations (e.g., Stripe, analytics, etc.)
+
+---
+
+## 💼 Maintainer
+
+**Waseem Alnasser**  
+Dubai, UAE  
+[Github](https://github.com/WaseemAlnasser/),
+[LinkedIn](https://ae.linkedin.com/in/waseem-alnasser-887185251)
+[Instagram](https://www.instagram.com/wassem.alnasser/)
