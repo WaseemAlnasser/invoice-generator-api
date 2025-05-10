@@ -8,7 +8,7 @@ A full-featured, open-source Laravel API for generating, emailing, and managing 
 ---
 
 ## 🚀 Features
-
+ 
 - ✅ **Authentication** using Laravel Sanctum
 - 👥 **Client Management** (CRUD)
 - 🧾 **Invoice Management**
